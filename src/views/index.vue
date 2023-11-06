@@ -1,5 +1,5 @@
 <script setup>
-import {showToast} from 'vant'
+import { showToast } from "vant";
 import { ref } from "vue";
 
 const active = ref(0);
@@ -16,30 +16,30 @@ const onRefresh = () => {
 
 <template>
   <div class="index">
-    <van-pull-refresh v-model="loading" @refresh="onRefresh">
+    <van-pull-refresh v-model="loading" @refresh="onRefresh" route>
       <RouterView />
     </van-pull-refresh>
     <van-tabbar v-model="active">
-      <van-tabbar-item
+      <van-tabbar-item to="/home"
         ><span class="material-symbols-outlined"> home </span><br /><span
           >首页</span
         >
       </van-tabbar-item>
-      <van-tabbar-item>
+      <van-tabbar-item to="/quotes">
         <span class="material-symbols-outlined"> monitoring </span><br /><span
           >行情</span
         >
       </van-tabbar-item>
-      <van-tabbar-item>
+      <van-tabbar-item to="/trade">
         <span class="material-symbols-outlined"> signal_cellular_alt </span
         ><br />
         <span>交易</span>
       </van-tabbar-item>
-      <van-tabbar-item>
-        <span class="material-symbols-outlined"> list_alt </span><br />
-        <span>合约</span>
+      <van-tabbar-item to="/wallet">
+        <span class="material-symbols-outlined"> account_balance_wallet </span><br>
+        <span>钱包</span>
       </van-tabbar-item>
-      <van-tabbar-item
+      <van-tabbar-item to="/mine"
         ><span class="material-symbols-outlined"> person </span> <br /><span
           >我的</span
         ></van-tabbar-item

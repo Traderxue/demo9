@@ -31,7 +31,55 @@ const router = createRouter({
       },
       {
         path:"/home",
-        component:()=>import("@/views/Home/home.vue")
+        component:()=>import("@/views/Home/home.vue"),
+        children:[
+          {
+            path:"",
+            component:()=>import("@/views/Home/components/increase.vue")
+          },
+          {
+            path:"/increase",
+            component:()=>import("@/views/Home/components/increase.vue")
+          },
+          {
+            path:"/deal",
+            component:()=>import("@/views/Home/components/deal.vue")
+          },
+          {
+            path:"/newcoin",
+            component:()=>import("@/views/Home/components/newcoin.vue")
+          }
+        ]
+      },
+      {
+        path:"/quotes",
+        component:()=>import("@/views/Quotes/quotes.vue"),
+        children:[
+          {
+            path:"",
+            component:()=>import("@/views/Quotes/components/coins.vue")
+          },
+          {
+            path:"/coins",
+            component:()=>import("@/views/Quotes/components/coins.vue")
+          },
+          {
+            path:"/contract",
+            component:()=>import("@/views/Quotes/components/contract.vue")
+          }
+        ]
+      },
+      {
+        path:"/trade",
+        component:()=>import("@/views/Trade/trade.vue")
+      },
+      {
+        path:"/wallet",
+        component:()=>import("@/views/Wallet/wallet.vue")
+      },
+      {
+        path:"/mine",
+        component:()=>import("@/views/Mine/mine.vue")
       }
     ]
    },
