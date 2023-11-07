@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 const navList = ref([
     {
@@ -25,12 +28,12 @@ const navList = ref([
     {
         logo:"http://127.0.0.1:5173/record.png",
         title:"仓位记录",
-        path:"/record"
+        path:"/all"
     },
     {
         logo:"http://127.0.0.1:5173/yanzheng.png",
         title:"身份验证",
-        path:"/yanzheng"
+        path:"/auth"
     },
     {
         logo:"http://127.0.0.1:5173/kefu.png",
@@ -39,6 +42,10 @@ const navList = ref([
     },
     
 ])
+
+const goTabs = (item) =>{
+    router.push(item.path)
+}
 </script>
 
 <template>
@@ -52,7 +59,7 @@ const navList = ref([
       </div>
     </div>
     <div class="box">
-      <div class="per" v-for="(item,index) in navList" :key="index">
+      <div class="per" v-for="(item,index) in navList" :key="index" @click="goTabs(item)">
         <div>
           <img :src="item.logo" alt="" />
           <span>{{item.title}}</span>
@@ -72,7 +79,7 @@ const navList = ref([
   height: auto;
   padding: 15px;
   .header {
-    height: 180px;
+    height: 150px;
     padding: 20px 0px;
     display: flex;
     justify-content: space-around;

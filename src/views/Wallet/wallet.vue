@@ -23,6 +23,25 @@ const navList = ref([
   },
 ]);
 
+const dataList = ref([
+  {
+    logo:"http://127.0.0.1:5173/chongzhi.png",
+    title:"充值",
+    path:"/chongzhi"
+  },
+  {
+    logo:"http://127.0.0.1:5173/tixian.png",
+    title:"提现",
+    path:"/tixian"
+  },
+  {
+    logo:"http://127.0.0.1:5173/huazhan.png",
+    title:"划转",
+    path:"/huazhan"
+  },
+])
+
+
 const usdt_assets = computed(() => {
   if (iconEye.value) return "1634.13";
   return "***";
@@ -41,6 +60,10 @@ const changeTabs = (item) => {
   active.value = item.title;
   router.push(item.path);
 };
+
+const goTabs = (item) =>{
+  router.push(item.path)
+}
 </script>
 
 <template>
@@ -64,17 +87,9 @@ const changeTabs = (item) => {
       <span>{{ cny_assets }} CNY</span>
     </div>
     <div class="nav">
-      <div>
-        <img src="@/assets/img/chongzhi.png" alt="" />
-        <span>充值</span>
-      </div>
-      <div>
-        <img src="@/assets/img/tixian.png" alt="" />
-        <span>提现</span>
-      </div>
-      <div>
-        <img src="@/assets/img/huazhan.png" alt="" />
-        <span>划转</span>
+      <div v-for="(item,index) in dataList" :key="index" @click="goTabs(item)"> 
+        <img :src="item.logo" alt="" />
+        <span>{{item.title}}</span>
       </div>
     </div>
     <div class="box">

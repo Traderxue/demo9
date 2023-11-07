@@ -51,6 +51,9 @@ const listData = ref([
     width: auto;
     height: auto;
     padding: 15px;
+    background: #F5DEAB;
+    border-radius: 5px;
+    margin-top: 15px;
     .header{
         width: auto;
         height: 25px;

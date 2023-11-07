@@ -97,11 +97,35 @@ const router = createRouter({
       },
       {
         path:"/mine",
-        component:()=>import("@/views/Mine/mine.vue")
+        component:()=>import("@/views/Mine/mine.vue"),
       },
       {
         path:"/all",
         component:()=>import("@/views/AllPositions/all.vue")
+      },
+      {
+        path:"/auth",
+        component:()=>import("@/components/auth.vue")
+      },
+      {
+        path:"/chongzhi",
+        component:()=>import("@/components/chongzhi.vue")
+      },
+      {
+        path:"/huazhuan",
+        component:()=>import("@/components/huazhuan.vue")
+      },
+      {
+        path:"/invite",
+        component:()=>import("@/components/invite.vue")
+      },
+      {
+        path:"/kefu",
+        component:()=>import("@/components/kefu.vue")
+      },
+      {
+        path:"/tixian",
+        component:()=>import("@/components/tixian.vue")
       }
     ]
    },

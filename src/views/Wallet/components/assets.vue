@@ -65,7 +65,7 @@ const listData = ref([
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    background: #FFF;
+    background: #F5DEAB;
     div {
       display: flex;
       justify-content: space-between;
