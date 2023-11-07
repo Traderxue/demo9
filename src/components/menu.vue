@@ -46,6 +46,14 @@ const copyUid = async () => {
 const goTabs = (item)=>{
     router.push(item.path)
 }
+
+const login = ()=>{
+  router.push("/login")
+} 
+
+const register = ()=>{
+  router.push("/register")
+}
 </script>
 
 <template>
@@ -64,7 +72,7 @@ const goTabs = (item)=>{
         <span class="material-symbols-outlined person_add"> {{item.icon}} </span><span>{{item.title}}</span>
       </div>
       <div class="btn">
-        <span>登录</span><span>注册</span>
+        <span @click="login">登录</span><span @click="register">注册</span>
       </div>
     </div>
   </div>
