@@ -26,7 +26,7 @@ const router = createRouter({
           {
             path:"/newcoin",
             component:()=>import("@/views/Home/components/newcoin.vue")
-          }
+          },
         ]
       },
       {
@@ -48,7 +48,8 @@ const router = createRouter({
           {
             path:"/newcoin",
             component:()=>import("@/views/Home/components/newcoin.vue")
-          }
+          },
+          
         ]
       },
       {
@@ -126,6 +127,10 @@ const router = createRouter({
       {
         path:"/tixian",
         component:()=>import("@/components/tixian.vue")
+      },
+      {
+        path:"/quick",
+        component:()=>import("@/components/quickly.vue")
       }
     ]
    },

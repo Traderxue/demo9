@@ -54,8 +54,8 @@ const goTabs = (item) =>{
       <img src="@/assets/img/acavtor.png" alt="" />
       <span>v8科技</span>
       <div>
-        <span style="color: #ff165d">ID: 2346</span>
-        <span style="color: #ff165d">等级: VIP1</span>
+        <span>ID: 2346</span>
+        <span>等级: VIP1</span>
       </div>
     </div>
     <div class="box">

@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
 
 const listData = ref([
     {
@@ -21,6 +23,7 @@ const listData = ref([
         up:1
     }
 ])
+
 </script>
 
 <template>

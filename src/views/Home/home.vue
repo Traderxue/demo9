@@ -61,6 +61,14 @@ const changeTitle = (item) => {
   router.push(item.path)
   active.value = item.title;
 };
+
+const quick = ()=>{
+    router.push("/quick")
+}
+
+const kefu = ()=>{
+  router.push("/kefu")
+}
 </script>
 
 <template>
@@ -117,17 +125,17 @@ const changeTitle = (item) => {
       </div>
     </div>
     <div class="quickly">
-      <div class="left">
+      <div class="left" @click="quick">
         <h3>快捷买币</h3>
         <span>支持USDT、BTC等</span>
         <img src="@/assets/img_1.png" alt="" />
       </div>
       <div class="right">
-        <div class="top">
+        <div class="top" @click="quick">
           <img src="@/assets/img/img_1.png" alt="" />
           <span>快捷买币</span>
         </div>
-        <div class="bottom">
+        <div class="bottom" @click="kefu">
           <img src="@/assets/img/img_2.png" alt="" />
           <span>帮助中心</span>
         </div>
