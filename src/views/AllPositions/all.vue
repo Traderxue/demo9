@@ -59,7 +59,7 @@ const goBack = () =>{
     <div class="position">
       <div class="top">
         <span class="material-symbols-outlined" @click="goBack"> arrow_back_ios </span>
-        <span>全部仓位</span><span></span>
+        <span>仓位记录</span><span></span>
       </div>
       <div class="per" v-for="(item, index) in perData" :key="index">
         <div>

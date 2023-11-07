@@ -4,51 +4,6 @@ import { useRouter } from "vue-router";
 
 const router = useRouter()
 
-const perData = ref([
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "+19.63",
-    up: 1,
-  },
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "-19.63",
-    up: 0,
-  },
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "+19.63",
-    up: 1,
-  },
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "+19.63",
-    up: 1,
-  },
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "-19.63",
-    up: 0,
-  },
-  {
-    type: "BTC",
-    time: "2022/10/23 19:50:03",
-    open_price: "19462",
-    profit: "+19.63",
-    up: 1,
-  },
-]);
-
 const goBack = () =>{
     router.back()
 }
