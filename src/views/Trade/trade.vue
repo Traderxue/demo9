@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 const showLeft = ref(false);
 
@@ -84,6 +87,10 @@ const sell = () => {
   open.value = "sell";
   btnContext.value = "卖出开空";
 };
+
+const viewAll = () =>{
+  router.push("/all")
+}
 </script>
 
 <template>
@@ -150,7 +157,7 @@ const sell = () => {
     <div class="position">
       <div class="top">
         <span class="position_top">持仓</span>
-        <div>
+        <div @click="viewAll">
           <span>查看全部</span
           ><span class="material-symbols-outlined arrow"> arrow_forward_ios </span>
         </div>

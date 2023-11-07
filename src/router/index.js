@@ -75,11 +75,33 @@ const router = createRouter({
       },
       {
         path:"/wallet",
-        component:()=>import("@/views/Wallet/wallet.vue")
+        component:()=>import("@/views/Wallet/wallet.vue"),
+        children:[
+          {
+            path:"",
+            component:()=>import("@/views/Wallet/components/assets.vue")
+          },
+          {
+            path:"/assets",
+            component:()=>import("@/views/Wallet/components/assets.vue")
+          },
+          {
+            path:"/financial",
+            component:()=>import("@/views/Wallet/components/financial.vue")
+          },
+          {
+            path:"/mining",
+            component:()=>import("@/views/Wallet/components/mining.vue")
+          }
+        ]
       },
       {
         path:"/mine",
         component:()=>import("@/views/Mine/mine.vue")
+      },
+      {
+        path:"/all",
+        component:()=>import("@/views/AllPositions/all.vue")
       }
     ]
    },
