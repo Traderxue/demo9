@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import Menu from "@/components/menu.vue"
 
-const router = useRouter()
+import i18n from "@/lang/index.js";
+
+const router = useRouter();
 
 const active = ref("涨幅榜");
 
@@ -33,15 +36,27 @@ const navList = ref([
 const titleList = ref([
   {
     title: "涨幅榜",
-    path:"/increase"
+    path: "/increase",
   },
   {
     title: "成交额榜",
-    path:"/deal"
+    path: "/deal",
   },
   {
     title: "新币榜",
-    path:"/newcoin"
+    path: "/newcoin",
+  },
+]);
+
+const langData = ref([
+  {
+    lang: "en",
+  },
+  {
+    lang: "zh",
+  },
+  {
+    lang: "zh_hk",
   },
 ]);
 
@@ -58,17 +73,22 @@ const showMenu = () => {
 };
 
 const changeTitle = (item) => {
-  router.push(item.path)
+  router.push(item.path);
   active.value = item.title;
 };
 
-const quick = ()=>{
-    router.push("/quick")
-}
+const quick = () => {
+  router.push("/quick");
+};
 
-const kefu = ()=>{
-  router.push("/kefu")
-}
+const kefu = () => {
+  router.push("/kefu");
+};
+
+const changeLang = (lang) => {
+  i18n.global.locale = lang;
+  showTop.value = false;
+};
 </script>
 
 <template>
@@ -80,10 +100,12 @@ const kefu = ()=>{
         position="left"
         :style="{ width: '60%', height: '100%' }"
       >
-        <div>123</div>
+        <div class="menu">
+          <Menu/>
+        </div>
       </van-popup>
 
-      <span>FVEX</span>
+      <span>{{ $t("home.title") }}</span>
       <span class="material-symbols-outlined" @click="showLang">
         language
       </span>
@@ -92,7 +114,14 @@ const kefu = ()=>{
         position="top"
         :style="{ height: '30%' }"
       >
-        <div>123</div>
+        <div class="lang">
+          <span
+            v-for="(item, index) in langData"
+            :key="index"
+            @click="changeLang(item.lang)"
+            >{{ item.lang }}</span
+          >
+        </div>
       </van-popup>
     </div>
     <div class="banner">
@@ -113,7 +142,7 @@ const kefu = ()=>{
         left-icon="volume-o"
         background="#FFF"
         color="#333"
-        text="无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。"
+        text="通知，将于11/8号上线ORDI交易，一种是返到MT4交易账户，适合个人交易者"
       />
     </div>
     <div class="nav">
@@ -146,12 +175,12 @@ const kefu = ()=>{
         v-for="(item, index) in titleList"
         :key="index"
         @click="changeTitle(item)"
-        :class="active==item.title?'active':''"
+        :class="active == item.title ? 'active' : ''"
         >{{ item.title }}</span
       >
     </div>
     <div class="box">
-      <RouterView/>
+      <RouterView />
     </div>
   </div>
 </template>
@@ -167,6 +196,22 @@ const kefu = ()=>{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .van-popup {
+      background: #f5f5f5;
+    }
+    .lang {
+      width: auto;
+      height: auto;
+      padding: 25px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      background: #f5f5f5;
+      span {
+        padding: 10px 0px;
+      }
+    }
   }
   .banner {
     width: auto;
