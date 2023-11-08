@@ -12,6 +12,13 @@ const btnContext = ref("买入开多");
 
 const value = ref(1);
 
+const tradeData = ref({
+  type:"BTC",
+  price:"2346.16",
+  parcent:"-1.6%",
+  up:0
+})
+
 const upList = ref([
   {
     price: "20613.56",
@@ -91,6 +98,13 @@ const sell = () => {
 const viewAll = () =>{
   router.push("/all")
 }
+
+const goChart = ()=>{
+  router.push({
+    path:"/chart",
+    query:tradeData.value
+  })
+}
 </script>
 
 <template>
@@ -111,7 +125,7 @@ const viewAll = () =>{
         <span>BTC/USDT</span>
       </div>
       <div>
-        <span class="material-symbols-outlined"> finance </span>
+        <span class="material-symbols-outlined" @click="goChart"> finance </span>
       </div>
     </div>
     <div class="box">

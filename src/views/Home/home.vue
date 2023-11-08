@@ -89,6 +89,13 @@ const changeLang = (lang) => {
   i18n.global.locale = lang;
   showTop.value = false;
 };
+
+const goChart = (item) =>{
+  router.push({
+    path:"/chart",
+    query:item
+  })
+}
 </script>
 
 <template>
@@ -146,7 +153,7 @@ const changeLang = (lang) => {
       />
     </div>
     <div class="nav">
-      <div v-for="(item, index) in navList" :key="index">
+      <div v-for="(item, index) in navList" :key="index" @click="goChart(item)">
         <span class="span1">{{ item.type }}/USDT</span>
         <span class="span2">{{ item.price }}</span>
         <span class="span3">{{ item.parcent }}</span>

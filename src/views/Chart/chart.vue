@@ -1,10 +1,11 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { init, dispose } from "klinecharts";
 import KLineData from "@/data/kline.js";
 
 const router = useRouter();
+const route = useRoute()
 
 const active = ref("1M");
 
@@ -15,6 +16,7 @@ const goBack = () => {
 let chart;
 
 onMounted(() => {
+    console.log(route.query)
   chart = init("chart");
 
   chart.applyNewData(KLineData[0].data);
@@ -58,13 +60,13 @@ const optional = ()=>{
       <span class="material-symbols-outlined arrow" @click="goBack">
         arrow_back_ios
       </span>
-      <span>BTC/USDT</span>
+      <span>{{route.query.type}}/USDT</span>
       <span></span>
     </div>
     <div class="banner">
       <div>
-        <h3>26943.13</h3>
-        <span style="color: #f9293e">-1.31%</span>
+        <h3 :class="route.query.up=='1'?'up':'down'">{{route.query.price}}</h3>
+        <span :class="route.query.up=='1'?'up':'down'">{{route.query.parcent}}</span>
       </div>
       <div>
         <span>24H最高</span>
@@ -136,11 +138,16 @@ const optional = ()=>{
       flex-direction: column;
       h3 {
         font-size: 18px;
-        color: #f9293e;
       }
       span {
         padding: 3px 0px;
       }
+    }
+    .down{
+        color: #f9293e;
+    }
+    .up{
+        color: #2DC08E;
     }
   }
   .time {

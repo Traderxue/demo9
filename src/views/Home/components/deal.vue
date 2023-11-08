@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+const router = useRouter()
 
 const listData = ref([
     {
@@ -24,6 +25,12 @@ const listData = ref([
     }
 ])
 
+const goChart = (item)=>{
+    router.push({
+        path:"/chart",
+        query:item
+    })
+}
 </script>
 
 <template>
@@ -31,7 +38,7 @@ const listData = ref([
         <div class="title">
             <span>种类</span><span style="text-align: center;">价格</span><span style="text-align: right;">涨跌幅</span>
         </div>
-        <div class="per" v-for="(item,index) in listData" :key="index">
+        <div class="per" v-for="(item,index) in listData" :key="index" @click="goChart(item)">
             <div style="text-align: left;"><span>{{item.type}}</span><p>/USDT</p></div>
             <div style="text-align: center;"><span :class="item.up==1?'up_price':'down_price'">{{item.price}}</span></div>
             <div><button :class="item.up==1?'up':'down'">{{item.parcent}}</button></div>
