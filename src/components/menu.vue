@@ -26,7 +26,7 @@ const navData = ref([
         path:"/mine"
     },
     {
-        title:"安全中心",
+        title:"密码管理",
         icon:"verified_user",
         path:"/security"
     },

@@ -16,7 +16,6 @@ const goBack = () => {
 let chart;
 
 onMounted(() => {
-    console.log(route.query)
   chart = init("chart");
 
   chart.applyNewData(KLineData[0].data);

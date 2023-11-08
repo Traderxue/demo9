@@ -12,6 +12,28 @@ const btnContext = ref("买入开多");
 
 const value = ref(1);
 
+const typeList = ref([
+    {
+      type:"BTC"
+    },
+    {
+      type:"ETH"
+    },
+    {
+      type:"SOL"
+    },
+    {
+      type:"APE"
+    },
+    {
+      type:"DOGE"
+    },
+    {
+      type:"MGX"
+    }
+
+])
+
 const tradeData = ref({
   type:"BTC",
   price:"2346.16",
@@ -105,6 +127,11 @@ const goChart = ()=>{
     query:tradeData.value
   })
 }
+
+const changeList = (item)=>{
+  tradeData.value.type = item.type
+  showLeft.value = false
+}
 </script>
 
 <template>
@@ -112,17 +139,21 @@ const goChart = ()=>{
     <div class="header">
       <span>币币交易</span>
     </div>
-    <div class="nav">
-      <div>
-        <van-popup
+    <van-popup
           v-model:show="showLeft"
           position="left"
           :style="{ width: '60%', height: '100%' }"
-        />
+        >
+        <div class="list">
+          <span v-for="(item,index) in typeList" :key="index" @click="changeList(item)">{{item.type}}/USDT</span>
+        </div>
+      </van-popup>
+    <div class="nav">
+      <div>
         <span class="material-symbols-outlined recorder" @click="showPopup">
           reorder
         </span>
-        <span>BTC/USDT</span>
+        <span>{{tradeData.type}}/USDT</span>
       </div>
       <div>
         <span class="material-symbols-outlined" @click="goChart"> finance </span>
@@ -389,5 +420,18 @@ const goChart = ()=>{
         }
     }
   }
+  .van-popup{
+      background: #f5f5f5;
+      padding: 20px ;
+    }
+    .list{
+      display: flex;
+      justify-content: space-around;      
+      flex-direction: column;
+      span{
+        padding: 15px 0px;
+        border-bottom: 1px solid rgba(227, 227, 227,0.8);
+      }
+    }
 }
 </style> 
